@@ -1,0 +1,54 @@
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.custom-navbar {
+  background-color: #490648 !important;
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff !important;
+}
+
+.user-photo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+.homepageHeading {
+  font-size: 50px;
+  font-weight: 800;
+  color: #490648;
+  text-decoration: underline;
+}
+
+.homeLogin {
+  background-color: #490648;
+  width: 300px !important;
+  height: 40px !important;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 10px;
+  color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.homeLoginlink {
+  text-decoration: none;
+}
+
+.allform {
+  box-shadow: 0px 0px 20px #490648;
+  border-radius: 10px;
+  padding: 20px;
+}
