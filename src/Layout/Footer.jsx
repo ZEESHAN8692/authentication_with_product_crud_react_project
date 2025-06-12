@@ -10,8 +10,7 @@ const Footer = () => {
         {/* Grid container */}
         <div className=" p-4 pb-0">
           {/* Section: Links */}
-          <section className>
-            {/*Grid row*/}
+         
             <div className="row">
               {/* Grid column */}
               <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
@@ -86,8 +85,7 @@ const Footer = () => {
               </div>
               {/* Grid column */}
             </div>
-            {/*Grid row*/}
-          </section>
+
           {/* Section: Links */}
           <hr className="my-3" />
           {/* Section: Copyright */}

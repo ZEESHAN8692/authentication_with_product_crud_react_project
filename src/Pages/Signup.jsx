@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import axiosInstance from "../../../webskittersClass/react/project10/src/Api/axiosInstance";
+import axiosInstance from "../Api/axiosInstance";
 import { reagister_end } from "../Api/end_point";
 import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState({
@@ -38,6 +39,7 @@ const Signup = () => {
       .then((res) => {
         if (res.status === 200) {
           alert("Account Create Succesfully");
+          console.log(input, image);
           navigate("/login");
         }
       })
@@ -60,6 +62,7 @@ const Signup = () => {
               placeholder="Enter Name"
               name="name"
               onChange={handleInput}
+              required
             />
           </Form.Group>
 
@@ -71,6 +74,7 @@ const Signup = () => {
               placeholder="Enter email"
               name="email"
               onChange={handleInput}
+              required
             />
           </Form.Group>
 
@@ -82,6 +86,7 @@ const Signup = () => {
               placeholder="Enter mobile number"
               name="mobile"
               onChange={handleInput}
+              required
             />
           </Form.Group>
 
@@ -93,6 +98,7 @@ const Signup = () => {
               placeholder="Password"
               name="password"
               onChange={handleInput}
+              required
             />
           </Form.Group>
 
@@ -104,13 +110,19 @@ const Signup = () => {
               placeholder="Enter your first school"
               name="first_school"
               onChange={handleInput}
+              required
             />
           </Form.Group>
 
           {/* Image Upload */}
           <Form.Group className="mb-3" controlId="formBasicImage">
             <Form.Label>Upload Image</Form.Label>
-            <Form.Control type="file" name="image" onChange={handleImage} />
+            <Form.Control
+              type="file"
+              name="image"
+              onChange={handleImage}
+              required
+            />
           </Form.Group>
 
           <Button variant="primary" type="submit">

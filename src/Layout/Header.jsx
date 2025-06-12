@@ -1,12 +1,19 @@
 import React from "react";
-import { Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("name");
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    window.confirm("Are You Sure");
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <>
       <Navbar expand="lg" className="custom-navbar">
@@ -36,16 +43,19 @@ const Header = () => {
                 Dashboard
               </Nav.Link>
             </Nav>
-            <div className="d-flex align-items-center">
-              <h5 className="text-white mb-0 me-3">Welcome, Zeeshan Khan</h5>
-              <Image
-                src="https://via.placeholder.com/40"
-                roundedCircle
-                className="user-photo me-2"
-                alt="User"
-              />
-              <Button variant="outline-light">Logout</Button>
-            </div>
+            {token && (
+              <div className="d-flex align-items-center">
+                <h5 className="text-white mb-0 me-3">Welcome, {user}</h5>
+                <img
+                  src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
+                  alt=""
+                  className="user-photo me-2 rounded-circle"
+                />
+                <Button variant="outline-light" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </div>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
