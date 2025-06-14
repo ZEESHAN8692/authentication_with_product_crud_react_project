@@ -2,13 +2,14 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Loading from "../components/Loading";
-import Signup from "../Pages/Signup";
-import Dashboard from "../Pages/Dashboard";
-import Products from "../Pages/Products";
-import CreateProducts from "../Pages/CreateProducts";
+const Signup = lazy(() => import("../Pages/Signup"));
+const Dashboard = lazy(() => import("../Pages/Dashboard"));
+const Products = lazy(() => import("../Pages/Products"));
+const UpdateProduct = lazy(() => import("../Pages/UpdateProduct"));
+const SingleProduct = lazy(() => import("../Pages/SingleProduct"));
+const Login = lazy(() => import("../Pages/Login"));
 import LoginProtected from "./LoginProtected";
 import ProtectedRoutes from "./ProtectedRoutes";
-const Login = lazy(() => import("../Pages/Login"));
 
 const Routing = () => {
   return (
@@ -22,7 +23,8 @@ const Routing = () => {
         <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/create-products" element={<CreateProducts />} />
+          <Route path="/update_product/:id" element={<UpdateProduct />} />
+          <Route path="/single_product/:id" element={<SingleProduct />} />
         </Route>
       </Routes>
     </Suspense>

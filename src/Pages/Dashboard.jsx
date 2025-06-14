@@ -4,7 +4,6 @@ import axiosInstance from "../Api/axiosInstance";
 import { update_password_end, user_end } from "../Api/end_point";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-// import base_url from "../Api/base_url";
 
 const Dashboard = () => {
   const [data, setData] = useState({});
@@ -28,8 +27,8 @@ const Dashboard = () => {
       })
       .catch((err) => console.log(err));
   };
-  // const folderPath = "";
-  // const image = base_url + folderPath + data.image;
+
+  const image = `https://webskitters-student.onrender.com/${data.image}`;
   return (
     <>
       <section
@@ -46,7 +45,7 @@ const Dashboard = () => {
                 <div className="d-flex">
                   <div className="flex-shrink-0">
                     <img
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                      src={image}
                       alt="Generic placeholder image"
                       className="img-fluid"
                       style={{ width: 180, borderRadius: 10 }}

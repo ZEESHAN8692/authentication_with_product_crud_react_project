@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axiosInstance from "../Api/axiosInstance";
 import { reagister_end } from "../Api/end_point";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -124,10 +124,14 @@ const Signup = () => {
               required
             />
           </Form.Group>
-
           <Button variant="primary" type="submit">
             Signup
           </Button>
+          <br />
+          <br />
+          <div>
+            <Link to="/login">Click , if you have already Account</Link>
+          </div>
         </Form>
       </div>
       <br />

@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("name");
+  const img = localStorage.getItem("image");
+  const image = `https://webskitters-student.onrender.com/${img}`;
   const navigate = useNavigate();
   const handleLogout = () => {
     window.confirm("Are You Sure");
@@ -31,23 +33,27 @@ const Header = () => {
               <Nav.Link as={Link} to="/" className="text-white">
                 Home
               </Nav.Link>
-              <Nav.Link href="/login" className="text-white">
+              <Nav.Link as={Link} to="/login" className="text-white">
                 Login
               </Nav.Link>
 
-              <Nav.Link href="/signup" className="text-white">
+              <Nav.Link as={Link} to="/signup" className="text-white">
                 Signup
               </Nav.Link>
 
-              <Nav.Link href="/dashboard" className="text-white">
+              <Nav.Link as={Link} to="/dashboard" className="text-white">
                 Dashboard
+              </Nav.Link>
+
+              <Nav.Link as={Link} to="/products" className="text-white">
+                View Products
               </Nav.Link>
             </Nav>
             {token && (
               <div className="d-flex align-items-center">
                 <h5 className="text-white mb-0 me-3">Welcome, {user}</h5>
                 <img
-                  src="https://static.vecteezy.com/system/resources/previews/036/594/092/non_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
+                  src={image}
                   alt=""
                   className="user-photo me-2 rounded-circle"
                 />
